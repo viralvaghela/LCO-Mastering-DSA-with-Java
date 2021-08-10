@@ -1,6 +1,6 @@
 class LinkedList {
 
-    Node head;
+    static Node head;
     class Node {
         int data;
         Node next;
@@ -52,10 +52,33 @@ class LinkedList {
             temp.next = new_node;
             return;
         }
-
-
     }
 
+    //reverse linkedlist
+    Node reverseLinkedlist(Node node)
+    {
+        Node prev = null;
+        Node current = node;
+        Node next = null;
+
+        while(current!=null)
+        {
+            next = current.next;
+            current.next = prev;
+
+            prev = current;
+            current = next;
+        }
+        node = prev;
+        return node;
+        
+    }
+
+    //delete at First 
+    public void deleteFirst()
+    {
+        
+    }
 
     //Print list elements
     public void printList()
@@ -63,7 +86,7 @@ class LinkedList {
         Node temp = head;
         while(temp != null)
         {
-            System.out.println(temp.data);
+            System.out.print(temp.data+"->");
             temp = temp.next;
         }
     }
@@ -79,6 +102,17 @@ class LinkedList {
         ll.push(1);
         ll.append(700);
         ll.append(800);
+        
+        
+        System.out.println("Printing original list:");
         ll.printList();
+
+
+
+        System.out.println("Reverse List:");
+        
+        head = ll.reverseLinkedlist(head);
+        ll.printList();
+        // revlist = revlist.reverseLinkedlist(revlist);
     }
 }
