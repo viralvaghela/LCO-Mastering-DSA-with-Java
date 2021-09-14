@@ -107,8 +107,6 @@ class LinkedList {
         System.out.println("Printing original list:");
         ll.printList();
 
-
-
         System.out.println("Reverse List:");
         
         head = ll.reverseLinkedlist(head);

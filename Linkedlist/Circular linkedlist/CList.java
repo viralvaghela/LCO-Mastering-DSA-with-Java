@@ -27,13 +27,39 @@ class CList {
         // System.out.println("List is e");
     }
 
+    // delete node using value
+    static void delete(Node head_ref) {
+
+    }
+
+    // count total nodes in a list
+    static void countNode(Node head_ref) {
+        Node temp = head_ref;
+        int counter = 0;
+        do {
+            counter++;
+            temp = temp.next;
+        } while (temp != head_ref);
+        System.out.println(counter);
+    }
+    static Node convertToCircular(Node head)
+    {
+        Node temp = head;
+        while(head.next!=null)
+        {
+            head = head.next;
+        }
+        head.next = temp;
+        return temp;
+    }
+
     static void print(Node head_ref) {
         Node temp = head_ref;
         if (head_ref != null) {
             do {
                 System.out.print(temp.data + " ");
                 temp = temp.next;
-            }while(temp!=head_ref);
+            } while (temp != head_ref);
         }
     }
 
@@ -42,6 +68,7 @@ class CList {
         head = push(10, head);
         head = push(20, head);
         head = push(30, head);
-        print(head);
+        // print(head);
+        countNode(head);
     }
 }
