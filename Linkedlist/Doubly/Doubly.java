@@ -21,9 +21,22 @@ class Doubly {
         if (head != null) {
             head.pre = new_node;
         }
-
         head = new_node;
 
+    }
+
+    // insert between
+    public void insertAfter(Node pre_node, int data) {
+        Node new_Node = new Node(data);
+        if (pre_node == null) {
+            System.out.println("Previous node can not be null");
+            return;
+        }
+        new_Node.next = pre_node.next;
+        pre_node.next.pre = new_Node;
+
+        new_Node.pre = pre_node;
+        pre_node.next = new_Node;
     }
 
     public void printlist(Node node) {
@@ -37,10 +50,13 @@ class Doubly {
 
     public static void main(String[] args) {
         Doubly dlist = new Doubly();
-        dlist.push(10);
+        dlist.push(40);
+        dlist.push(30);
         dlist.push(20);
+        dlist.push(10);
+        // dlist.printlist(dlist.head);
+        dlist.insertAfter(head.next.next, 35);
         dlist.printlist(dlist.head);
-
     }
 
 }
