@@ -39,6 +39,43 @@ class Doubly {
         pre_node.next = new_Node;
     }
 
+    // insert at the last
+    public void inserAtLast(int data) {
+        if (head == null) {
+            System.out.println("List is empty,cant insert ");
+            return;
+        }
+        Node temp = head;
+        do {
+            temp = temp.next;
+        } while (temp.next != null);
+
+        Node new_node = new Node(data);
+        new_node.next = null;
+        temp.next = new_node;
+        new_node.pre = temp;
+
+    }
+
+    // delete using key/data
+    void delete(int data) {
+        // if its first node
+        if (head.data == data) {
+            head = head.next;
+            head.pre = null;
+            return;
+        }
+        Node temp = head;
+        do {
+            temp = temp.next;
+        } while (temp.data != data);
+
+        temp.pre.next = temp.next;
+        temp.next.pre = temp.pre;
+        return;
+
+    }
+
     public void printlist(Node node) {
 
         while (node != null) {
@@ -56,6 +93,12 @@ class Doubly {
         dlist.push(10);
         // dlist.printlist(dlist.head);
         dlist.insertAfter(head.next.next, 35);
+        // dlist.printlist(dlist.head);
+        dlist.inserAtLast(99);
+        // dlist.printlist(dlist.head);
+        dlist.delete(40);
+        // dlist.printlist(dlist.head);
+        dlist.delete(10);
         dlist.printlist(dlist.head);
     }
 
